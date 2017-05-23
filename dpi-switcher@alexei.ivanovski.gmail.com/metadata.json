@@ -1,0 +1,9 @@
+{
+    "version": "0.0.1",
+    "name": "DpiSwitcher",
+    "original-author": "Aleksey Ivanovsky",
+    "description": "make easy to switch between different dpi",
+    "uuid": "dpi-switcher@alexei.ivanovski.gmail.com",
+    "settings-schema": "org.gnome.shell.extensions.dpi-switcher",
+    "shell-version": ["3.12", "3.14", "3.16", "3.18", "3.20"]
+}

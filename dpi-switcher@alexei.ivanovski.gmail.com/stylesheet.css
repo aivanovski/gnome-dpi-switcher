@@ -1,0 +1,16 @@
+.switcher-box {
+	text-align: center;
+	color: #ffffff;
+	font-size: 14px;
+}
+
+.switcher-box-label {
+    font-size: 14px;
+    border-radius: 5px;
+    padding: .5em;
+}
+
+.switcher-box-icon {
+	padding: 1px;
+	border: none;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="gnome-shell-extensions">
+    <schema 
+        id="org.gnome.shell.extensions.dpi-switcher" 
+        path="/org/gnome/shell/extensions/dpi-switcher/">
+
+        <key name="key-shortcut-switch-dpi" type="as">
+            <default><![CDATA[['<Super>o']]]></default>
+        </key>
+
+        <key name="icon-size" type="i">
+            <default>120</default>
+        </key>
+
+    </schema>
+</schemalist>
