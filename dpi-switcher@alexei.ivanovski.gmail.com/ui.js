@@ -7,6 +7,7 @@ const SwitcherPopup  = imports.ui.switcherPopup;
 const ExtensionUtils = imports.misc.extensionUtils;
 const CurrentExtension = ExtensionUtils.getCurrentExtension();
 const Convenience = CurrentExtension.imports.convenience;
+const Extension = CurrentExtension.imports.extension;
 
 const DpiPopupPresenter = new Lang.Class({
     Name: 'DpiPopupPresenter',
@@ -15,18 +16,24 @@ const DpiPopupPresenter = new Lang.Class({
 
     },
 
-    _show: function(backward, binding, mask) {
+    _show: function(backward, binding, mask, mode) {
         if ( !this._popup) {
             let items = [];
 
-            items.push(new SwitcherItem(0, "HDR ON", "ic-hdr-off-w"));
-            items.push(new SwitcherItem(1, "HDR OFF", "ic-hdr-on-w"));
+            items.push(new SwitcherItem(0, "Turn on", "ic-hdr-off-w"));
+            items.push(new SwitcherItem(1, "Turn off", "ic-hdr-on-w"));
 
             this._popup = new DpiSwitcherPopup(items);
         }
 
         this._popup.show(backward, binding, mask);
-        this._popup._select(0);
+        
+        if (mode == Extension.DpiMode.LOW) {
+            this._popup._select(0);
+        } else if (mode == Extension.DpiMode.HIGH) {
+            this._popup._select(1);
+        }
+        
         this._popup.actor.connect('destroy', Lang.bind(this, function() {
                                                 this._popup = null;
                                             }));      

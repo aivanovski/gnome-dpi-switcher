@@ -58,7 +58,8 @@ const DisplayExtension = new Lang.Class({
         log("hot key pressed, mode=" + mode);
         this._dpiPresenter._show(binding.is_reversed(), 
                                         binding.get_name(), 
-                                        binding.get_mask()); 
+                                        binding.get_mask(),
+                                        mode); 
     },
 
     _destroy: function() {
