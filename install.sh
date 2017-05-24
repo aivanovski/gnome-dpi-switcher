@@ -22,14 +22,13 @@ glib-compile-schemas "$EXTENSION_NAME/schemas"
 
 # copy extension files to extensions directory
 destination="$EXTENSIONS_DIRECTORY_PATH/$EXTENSION_NAME"
-schema_directory="$destination/schemas"
-icons_directory="$destination/icons"
 
 rm -rf "$destination"
 
 mkdir -p "$destination"
-mkdir -p "$schema_directory"
-mkdir -p "$icons_directory"
+mkdir -p "$destination/schemas"
+mkdir -p "$destination/icons"
+mkdir -p "$destination/scripts"
 
 find "$EXTENSION_NAME" -name "*.js" -exec cp {} "$destination/" \;
 find "$EXTENSION_NAME" -name "*.css" -exec cp {} "$destination/" \;
@@ -37,3 +36,4 @@ find "$EXTENSION_NAME" -name "*.css" -exec cp {} "$destination/" \;
 cp "$EXTENSION_NAME/metadata.json" "$destination/metadata.json"
 cp "$EXTENSION_NAME/schemas/gschemas.compiled" "$destination/schemas/gschemas.compiled"
 cp -r "$EXTENSION_NAME/icons" "$destination"
+cp -r "$EXTENSION_NAME/scripts" "$destination"

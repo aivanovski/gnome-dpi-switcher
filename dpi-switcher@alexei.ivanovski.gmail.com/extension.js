@@ -16,8 +16,13 @@ const HOT_KEY_META_FLAGS = Meta.KeyBindingFlags.NONE;
 const SHELL_VERSION  = Config.PACKAGE_VERSION.split('.')[1];
 const HOT_KEY_BINDING_FLAGS  = (SHELL_VERSION <= 14) ? Shell.KeyBindingMode.NORMAL : Shell.ActionMode.NORMAL;
 
-const DPI_LOW = 0;
-const DPI_HIGH = 1;
+const PATH_TO_SCRIPT_FOLDER = "$HOME/.local/share/gnome-shell/extensions/dpi-switcher@alexei.ivanovski.gmail.com/scripts";
+
+const DpiMode = {
+    UNDEFINED: 0,
+    LOW: 1,
+    HIGH: 2
+};
 
 let extension;
 
@@ -50,7 +55,7 @@ const DisplayExtension = new Lang.Class({
     _showSwither: function(display, screen, window, binding ) {
         let mode = this._dpiHandler._getCurrentMode();
 
-        log('hot key pressed, mode=' + mode);
+        log("hot key pressed, mode=" + mode);
         this._dpiPresenter._show(binding.is_reversed(), 
                                         binding.get_name(), 
                                         binding.get_mask()); 
@@ -68,7 +73,26 @@ const DpiHandler = new Lang.Class({
     },
 
     _getCurrentMode: function() {
-        return DPI_LOW;
+        let result = DpiMode.UNDEFINED;
+
+        let commandResult = CommandLine._run("/bin/bash -c \"" + PATH_TO_SCRIPT_FOLDER + "/get_mode.sh" + "\"");
+        log("result: " + commandResult.success + " " + commandResult.out);
+
+        let mode = commandResult.out.trim();
+
+        log("mode type: " + (typeof mode));
+        log("mode: " + mode);
+        log("mode length: " + mode.length);
+
+        if (mode === "low") {
+            result = DpiMode.LOW;
+            log("LOW");
+        } else if (mode === "high") {
+            result = DpiMode.HIGH;
+            log("HIGH");
+        }
+
+        return result;
     },
 
     _setMode: function(mode) {
