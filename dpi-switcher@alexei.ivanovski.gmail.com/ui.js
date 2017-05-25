@@ -20,8 +20,8 @@ const DpiPopupPresenter = new Lang.Class({
         if ( !this._popup) {
             let items = [];
 
-            items.push(new SwitcherItem(0, "Turn on", "ic-hdr-off-w", Extension.DpiMode.HIGH));
-            items.push(new SwitcherItem(1, "Turn off", "ic-hdr-on-w", Extension.DpiMode.LOW));
+            items.push(new SwitcherItem(0, 'Turn on', 'ic-hdr-off-w', Extension.DpiMode.HIGH));
+            items.push(new SwitcherItem(1, 'Turn off', 'ic-hdr-on-w', Extension.DpiMode.LOW));
 
             this._popup = new DpiSwitcherPopup(items, this._dpiHandler);
         }
@@ -90,7 +90,7 @@ const DpiSwitcherPopup = new Lang.Class({
     _finish : function(time)  {
         this.parent(time);
 
-        log("_selectedIndex=" + this._selectedIndex);
+        log('_selectedIndex=' + this._selectedIndex);
 
         let selectedMode = this._items[this._selectedIndex]._mode;
 

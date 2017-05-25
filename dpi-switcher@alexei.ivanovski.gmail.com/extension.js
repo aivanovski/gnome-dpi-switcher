@@ -11,12 +11,12 @@ const Meta = imports.gi.Meta;
 const Shell = imports.gi.Shell;
 const Config = imports.misc.config;
 
-const HOT_KEY_SHORTCUT = "key-shortcut-switch-dpi";
+const HOT_KEY_SHORTCUT = 'key-shortcut-switch-dpi';
 const HOT_KEY_META_FLAGS = Meta.KeyBindingFlags.NONE;
 const SHELL_VERSION  = Config.PACKAGE_VERSION.split('.')[1];
 const HOT_KEY_BINDING_FLAGS  = (SHELL_VERSION <= 14) ? Shell.KeyBindingMode.NORMAL : Shell.ActionMode.NORMAL;
 
-const PATH_TO_SCRIPT_FOLDER = "$HOME/.local/share/gnome-shell/extensions/dpi-switcher@alexei.ivanovski.gmail.com/scripts";
+const PATH_TO_SCRIPT_FOLDER = '$HOME/.local/share/gnome-shell/extensions/dpi-switcher@alexei.ivanovski.gmail.com/scripts';
 
 const DpiMode = {
     UNDEFINED: 0,
@@ -55,7 +55,7 @@ const DisplayExtension = new Lang.Class({
     _showSwither: function(display, screen, window, binding ) {
         let mode = this._dpiHandler._getCurrentMode();
 
-        log("hot key pressed, mode=" + mode);
+        log('hot key pressed, mode=' + mode);
         this._dpiPresenter._show(binding.is_reversed(), 
                                         binding.get_name(), 
                                         binding.get_mask(),
@@ -74,7 +74,7 @@ const DpiHandler = new Lang.Class({
     },
 
     _getCurrentMode: function() {
-        let commandResult = CommandLine._run("/bin/bash -c \"" + PATH_TO_SCRIPT_FOLDER + "/get_mode.sh" + "\"");
+        let commandResult = CommandLine._run('/bin/bash -c \'' + PATH_TO_SCRIPT_FOLDER + '/get_mode.sh' + '\'');
         let modeStr = commandResult.out.trim();
 
         return this._parseDpiMode(modeStr);
@@ -83,9 +83,9 @@ const DpiHandler = new Lang.Class({
     _parseDpiMode: function(modeStr) {
         let result = DpiMode.UNDEFINED;
 
-        if (modeStr === "low") {
+        if (modeStr === 'low') {
             result = DpiMode.LOW;
-        } else if (modeStr === "high") {
+        } else if (modeStr === 'high') {
             result = DpiMode.HIGH;
         }
 
@@ -95,18 +95,18 @@ const DpiHandler = new Lang.Class({
     _setMode: function(mode) {
         let commandArg = this._getScriptArgument(mode);
 
-        log("Executing command: " + "/bin/bash -c \"" + PATH_TO_SCRIPT_FOLDER + "/set_mode.sh " + commandArg + "\"");
+        log('Executing command: ' + '/bin/bash -c \'' + PATH_TO_SCRIPT_FOLDER + '/set_mode.sh ' + commandArg + '\'');
 
-        CommandLine._run("/bin/bash -c \"" + PATH_TO_SCRIPT_FOLDER + "/set_mode.sh " + commandArg + "\"");
+        CommandLine._run('/bin/bash -c \'' + PATH_TO_SCRIPT_FOLDER + '/set_mode.sh ' + commandArg + '\'');
     },
 
     _getScriptArgument: function(mode) {
         let arg = null;
 
         if (mode == DpiMode.LOW) {
-            arg = "low";
+            arg = 'low';
         } else if (mode == DpiMode.HIGH) {
-            arg = "high";
+            arg = 'high';
         }
 
         return arg;
