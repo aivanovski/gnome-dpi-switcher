@@ -11,12 +11,12 @@
    height="24"
    viewBox="0 0 24 24"
    width="24"
-   id="svg4399"
+   id="svg3523"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="ic-hdr-on-w.svg">
+   sodipodi:docname="ic-hdr-off-w.svg">
   <metadata
-     id="metadata4409">
+     id="metadata3531">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -27,7 +27,7 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs4407" />
+     id="defs3529" />
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -39,21 +39,17 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
      inkscape:window-height="956"
-     id="namedview4405"
+     id="namedview3527"
      showgrid="false"
      inkscape:zoom="32.916667"
-     inkscape:cx="12"
+     inkscape:cx="7.5949367"
      inkscape:cy="12"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg4399" />
+     inkscape:current-layer="svg3523" />
   <path
-     d="M0 0h24v24H0V0z"
-     fill="none"
-     id="path4401" />
-  <path
-     d="M21 11.5v-1c0-.8-.7-1.5-1.5-1.5H16v6h1.5v-2h1.1l.9 2H21l-.9-2.1c.5-.3.9-.8.9-1.4zm-1.5 0h-2v-1h2v1zm-13-.5h-2V9H3v6h1.5v-2.5h2V15H8V9H6.5v2zM13 9H9.5v6H13c.8 0 1.5-.7 1.5-1.5v-3c0-.8-.7-1.5-1.5-1.5zm0 4.5h-2v-3h2v3z"
-     id="path4403"
+     d="M17.5 15v-2h1.1l.9 2H21l-.9-2.1c.5-.2.9-.8.9-1.4v-1c0-.8-.7-1.5-1.5-1.5H16v4.9l1.1 1.1h.4zm0-4.5h2v1h-2v-1zm-4.5 0v.4l1.5 1.5v-1.9c0-.8-.7-1.5-1.5-1.5h-1.9l1.5 1.5h.4zm-3.5-1l-7-7-1.1 1L6.9 9h-.4v2h-2V9H3v6h1.5v-2.5h2V15H8v-4.9l1.5 1.5V15h3.4l7.6 7.6 1.1-1.1-12.1-12z"
+     id="path3525"
      style="fill:#f9f9f9;fill-opacity:1" />
 </svg>

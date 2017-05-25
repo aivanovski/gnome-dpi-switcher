@@ -32,8 +32,8 @@ const DisplayExtension = new Lang.Class({
     _init: function() {
 
         this._settings = Convenience._getSettings();
-        this._dpiPresenter = new UI.DpiPopupPresenter();
         this._dpiHandler = new DpiHandler();
+        this._dpiPresenter = new UI.DpiPopupPresenter(this._dpiHandler);
 
         Convenience._initTheme();
 
@@ -74,29 +74,42 @@ const DpiHandler = new Lang.Class({
     },
 
     _getCurrentMode: function() {
+        let commandResult = CommandLine._run("/bin/bash -c \"" + PATH_TO_SCRIPT_FOLDER + "/get_mode.sh" + "\"");
+        let modeStr = commandResult.out.trim();
+
+        return this._parseDpiMode(modeStr);
+    },
+
+    _parseDpiMode: function(modeStr) {
         let result = DpiMode.UNDEFINED;
 
-        let commandResult = CommandLine._run("/bin/bash -c \"" + PATH_TO_SCRIPT_FOLDER + "/get_mode.sh" + "\"");
-        log("result: " + commandResult.success + " " + commandResult.out);
-
-        let mode = commandResult.out.trim();
-
-        log("mode type: " + (typeof mode));
-        log("mode: " + mode);
-        log("mode length: " + mode.length);
-
-        if (mode === "low") {
+        if (modeStr === "low") {
             result = DpiMode.LOW;
-            log("LOW");
-        } else if (mode === "high") {
+        } else if (modeStr === "high") {
             result = DpiMode.HIGH;
-            log("HIGH");
         }
 
         return result;
     },
 
     _setMode: function(mode) {
+        let commandArg = this._getScriptArgument(mode);
+
+        log("Executing command: " + "/bin/bash -c \"" + PATH_TO_SCRIPT_FOLDER + "/set_mode.sh " + commandArg + "\"");
+
+        CommandLine._run("/bin/bash -c \"" + PATH_TO_SCRIPT_FOLDER + "/set_mode.sh " + commandArg + "\"");
+    },
+
+    _getScriptArgument: function(mode) {
+        let arg = null;
+
+        if (mode == DpiMode.LOW) {
+            arg = "low";
+        } else if (mode == DpiMode.HIGH) {
+            arg = "high";
+        }
+
+        return arg;
     }
 });
 
