@@ -10,6 +10,7 @@ install.sh
 
 ## Usage
 Just press Super + O.
+![alt tag](https://github.com/chiken88/gnome-dpi-switcher/blob/master/screenshots/demo.png)
 
 ## Configuration
 For now, extension doesn't have UI with settings. You can configure it manually, by your needs. 
