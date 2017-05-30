@@ -1,5 +1,5 @@
 # gnome-dpi-switcher
-DPI Switcher provides easy way to change scale factors in GNOME Shell. This extension if useful for multi-monitor setups with different DPI.
+DPI Switcher provides easy way to change scale factors in GNOME Shell. This extension is useful for multi-monitor setups with different DPI.
 
 ## Installation
 Just run install.sh from project directory, it will compile schemas and copy sources to gnome extensions directory.
