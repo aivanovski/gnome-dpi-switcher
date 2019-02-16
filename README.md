@@ -12,6 +12,14 @@ install.sh
 Just press Super + O.
 ![alt tag](https://github.com/chiken88/gnome-dpi-switcher/blob/master/screenshots/demo.png)
 
+## What this extension really does
+This extension sets different scale factors through 'gsettings' utility as it listed below.
+```
+gsettings set org.gnome.desktop.interface scaling-factor "$scale"
+gsettings set org.gnome.settings-daemon.plugins.xsettings overrides "[{'Gdk/WindowScalingFactor', <$scale>}]"
+```
+By default it switches between values 1 and 2 as scale factors. 
+
 ## Configuration
 For now, extension doesn't have UI with settings. You can configure it manually, by your needs. 
 
