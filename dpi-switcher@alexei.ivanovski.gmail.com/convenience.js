@@ -5,7 +5,7 @@ const CurrentExtension = ExtensionUtils.getCurrentExtension();
 const Gtk = imports.gi.Gtk;
 const Theme = Gtk.IconTheme.get_default();
 
-function _getSettings(schema) {
+function getSettings(schema) {
     schema = schema || CurrentExtension.metadata['settings-schema'];
 
     const GioSSS = Gio.SettingsSchemaSource;
@@ -29,7 +29,7 @@ function _getSettings(schema) {
     return new Gio.Settings({ settings_schema: schemaObj });
 }
 
-function _initTheme() {
+function initTheme() {
     Theme.append_search_path(this._getDirPath('icons'));
 }
 

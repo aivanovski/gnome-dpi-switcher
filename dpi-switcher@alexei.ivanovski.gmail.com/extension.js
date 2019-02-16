@@ -31,11 +31,11 @@ const DisplayExtension = new Lang.Class({
 
     _init: function() {
 
-        this._settings = Convenience._getSettings();
+        this._settings = Convenience.getSettings();
         this._dpiHandler = new DpiHandler();
         this._dpiPresenter = new UI.DpiPopupPresenter(this._dpiHandler);
 
-        Convenience._initTheme();
+        Convenience.initTheme();
 
         this._bindHotKey();
     },

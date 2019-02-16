@@ -27,13 +27,13 @@ const DpiPopupPresenter = new Lang.Class({
         }
 
         this._popup.show(backward, binding, mask);
-        
+
         if (mode == Extension.DpiMode.LOW) {
             this._popup._select(1);
         } else if (mode == Extension.DpiMode.HIGH) {
             this._popup._select(0);
         }
-        
+
         this._popup.actor.connect('destroy', Lang.bind(this, function() {
                                                 this._popup = null;
                                             }));      
@@ -105,7 +105,7 @@ const DpiSwitcherList = new Lang.Class({
     _init: function(items) {
         this.parent(true);
 
-        let ICON_SIZE = Convenience._getSettings().get_int('icon-size');
+        let ICON_SIZE = Convenience.getSettings().get_int('icon-size');
 
         for (let i = 0; i < items.length; i++) {
             let item = items[i];
@@ -116,7 +116,7 @@ const DpiSwitcherList = new Lang.Class({
             let icon = new St.Icon({ style_class: 'switcher-box-icon', 
                                     icon_name: item._icon,
                                     icon_size: ICON_SIZE});
-            
+
             let text = new St.Label({ style_class: 'switcher-box-label', 
                                     text: item._name });
             box.add(icon);
