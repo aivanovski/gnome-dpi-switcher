@@ -45,14 +45,14 @@ const DisplayExtension = new Lang.Class({
             this._settings,
             HOT_KEY_META_FLAGS,
             HOT_KEY_BINDING_FLAGS,
-            Lang.bind(this, this._showSwither));
+            this._showSwither.bind(this));
     },
 
     _unbindHotKey: function() {
         Main.wm.removeKeybinding(HOT_KEY_SHORTCUT);
     },
 
-    _showSwither: function(display, screen, window, binding ) {
+    _showSwither: function(display, window, binding ) {
         let mode = this._dpiHandler._getCurrentMode();
 
         log('hot key pressed, mode=' + mode);
