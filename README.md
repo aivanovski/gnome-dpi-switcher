@@ -49,3 +49,20 @@ You'll have to compile schema after any changes or just run install.sh.
 cd dpi-switcher@alexei.ivanovski.gmail.com
 glib-compile-schemas schemas
 ```
+
+## License
+
+Copyright (C) 2017 Aleksey Ivanovsky
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
