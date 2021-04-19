@@ -10,7 +10,7 @@ install.sh
 
 ## Usage
 Just press Super + O.
-![alt tag](https://github.com/chiken88/gnome-dpi-switcher/blob/master/screenshots/demo.png)
+![alt tag](https://github.com/aivanovski/gnome-dpi-switcher/blob/master/screenshots/demo.png)
 
 ## What this extension really does
 This extension sets different scale factors through 'gsettings' utility as it listed below.
